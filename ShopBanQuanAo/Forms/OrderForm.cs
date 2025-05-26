@@ -214,7 +214,7 @@ namespace ShopBanQuanAo
                 txtID.Text = row.Cells["ID"].Value.ToString();
                 if (row.Cells["NgayDat"].Value != DBNull.Value && row.Cells["NgayDat"].Value != null)
                     dtpNgay.Value = Convert.ToDateTime(row.Cells["NgayDat"].Value);
-                else dtpNgay.Value = DateTime.Now; 
+                else dtpNgay.Value = DateTime.Now;
                 txtTongTien.Text = row.Cells["TongTien"].Value.ToString();
                 txtTrangThai.Text = row.Cells["TrangThai"].Value.ToString();
                 txtGhiChu.Text = row.Cells["GhiChu"].Value?.ToString() ?? "";
@@ -231,6 +231,59 @@ namespace ShopBanQuanAo
                 }
             }
         }
+
+        private void btnViewDetails_Click(object sender, EventArgs e)
+        {
+            if (string.IsNullOrEmpty(txtID.Text))
+            {
+                MessageBox.Show("Vui lòng chọn đơn hàng để xem chi tiết.");
+                return;
+            }
+
+            int orderId = int.Parse(txtID.Text);
+
+            OrderDetailForm detailForm = new OrderDetailForm(orderId);
+            detailForm.ShowDialog();
+        }
+        private void btnRefreshTotal_Click(object sender, EventArgs e)
+        {
+            if (string.IsNullOrEmpty(txtID.Text))
+            {
+                MessageBox.Show("Vui lòng chọn đơn hàng để cập nhật tổng tiền.");
+                return;
+            }
+
+            int orderId = int.Parse(txtID.Text);
+
+            using (var conn = Helpers.GetConnection())
+            {
+                try
+                {
+                    conn.Open();
+
+                    // Tính lại tổng tiền từ bảng ChiTietDonHang
+                    string updateTotalQuery = @"
+                        UPDATE DonHang
+                        SET TongTien = (
+                            SELECT IFNULL(SUM(SoLuong * GiaBan), 0)
+                            FROM ChiTietDonHang
+                            WHERE IDDonHang = @orderId
+                        )
+                        WHERE ID = @orderId";
+
+                    MySqlCommand cmd = new MySqlCommand(updateTotalQuery, conn);
+                    cmd.Parameters.AddWithValue("@orderId", orderId);
+                    cmd.ExecuteNonQuery();
+
+                    MessageBox.Show("Đã cập nhật tổng tiền.");
+                    LoadOrders(); // Refresh lại bảng
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Lỗi khi cập nhật tổng tiền: " + ex.Message);
+                }
+            }
+        }       
     }
 
     public class ComboboxItem

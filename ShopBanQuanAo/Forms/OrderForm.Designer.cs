@@ -1,3 +1,5 @@
+
+
 namespace ShopBanQuanAo
 {
     partial class OrderForm
@@ -29,7 +31,6 @@ namespace ShopBanQuanAo
             this.lblTongTien = new System.Windows.Forms.Label();
             this.lblTrangThai = new System.Windows.Forms.Label();
             this.lblGhiChu = new System.Windows.Forms.Label();
-
             ((System.ComponentModel.ISupportInitialize)(this.dgvOrders)).BeginInit();
             this.SuspendLayout();
 
@@ -119,6 +120,15 @@ namespace ShopBanQuanAo
             this.btnDelete.Text = "Xóa";
             this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
 
+            // Button: View Details
+            this.btnViewDetails = new System.Windows.Forms.Button();
+            this.btnViewDetails.Location = new System.Drawing.Point(600, 150);
+            this.btnViewDetails.Name = "btnViewDetails";
+            this.btnViewDetails.Size = new System.Drawing.Size(120, 40);
+            this.btnViewDetails.Text = "Xem Chi Tiết";
+            this.btnViewDetails.UseVisualStyleBackColor = true;
+            this.btnViewDetails.Click += new System.EventHandler(this.btnViewDetails_Click);
+            this.Controls.Add(this.btnViewDetails);
             // OrderForm
             this.ClientSize = new System.Drawing.Size(800, 520);
             this.Controls.Add(this.dgvOrders);
@@ -139,10 +149,20 @@ namespace ShopBanQuanAo
             this.Controls.Add(this.lblGhiChu);
             this.Name = "OrderForm";
             this.Text = "Quản lý Đơn Hàng";
+            // Refresh Button
+
+            this.btnRefreshTotal = new System.Windows.Forms.Button();
+            this.btnRefreshTotal.Text = "Cập nhật tổng tiền";
+            this.btnRefreshTotal.Location = new System.Drawing.Point(600, 200);
+            this.btnRefreshTotal.Size = new System.Drawing.Size(150, 30);
+            this.btnRefreshTotal.Click += new System.EventHandler(this.btnRefreshTotal_Click);
+            this.Controls.Add(this.btnRefreshTotal);
+            
             ((System.ComponentModel.ISupportInitialize)(this.dgvOrders)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
         }
+
 
         private System.Windows.Forms.DataGridView dgvOrders;
         private System.Windows.Forms.TextBox txtID;
@@ -161,5 +181,8 @@ namespace ShopBanQuanAo
         private System.Windows.Forms.Label lblTongTien;
         private System.Windows.Forms.Label lblTrangThai;
         private System.Windows.Forms.Label lblGhiChu;
+
+        private System.Windows.Forms.Button btnViewDetails;
+        private Control btnRefreshTotal;
     }
 }
