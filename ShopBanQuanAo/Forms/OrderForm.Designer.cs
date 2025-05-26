@@ -3,16 +3,6 @@ namespace ShopBanQuanAo
     partial class OrderForm
     {
         private System.ComponentModel.IContainer components = null;
-        private System.Windows.Forms.Label lblID;
-        private System.Windows.Forms.Label lblNgay;
-        private System.Windows.Forms.Label lblKhachHang;
-        private System.Windows.Forms.TextBox txtID;
-        private System.Windows.Forms.DateTimePicker dtpNgay;
-        private System.Windows.Forms.ComboBox comboCustomer;
-        private System.Windows.Forms.Button btnAdd;
-        private System.Windows.Forms.Button btnUpdate;
-        private System.Windows.Forms.Button btnDelete;
-        private System.Windows.Forms.DataGridView dgvOrders;
 
         protected override void Dispose(bool disposing)
         {
@@ -22,128 +12,154 @@ namespace ShopBanQuanAo
 
         private void InitializeComponent()
         {
-            this.lblID = new System.Windows.Forms.Label();
-            this.lblNgay = new System.Windows.Forms.Label();
-            this.lblKhachHang = new System.Windows.Forms.Label();
+            this.dgvOrders = new System.Windows.Forms.DataGridView();
             this.txtID = new System.Windows.Forms.TextBox();
             this.dtpNgay = new System.Windows.Forms.DateTimePicker();
             this.comboCustomer = new System.Windows.Forms.ComboBox();
+            this.txtTongTien = new System.Windows.Forms.TextBox();
+            this.txtTrangThai = new System.Windows.Forms.TextBox();
+            this.txtGhiChu = new System.Windows.Forms.TextBox();
             this.btnAdd = new System.Windows.Forms.Button();
             this.btnUpdate = new System.Windows.Forms.Button();
             this.btnDelete = new System.Windows.Forms.Button();
-            this.dgvOrders = new System.Windows.Forms.DataGridView();
+
+            this.lblID = new System.Windows.Forms.Label();
+            this.lblNgay = new System.Windows.Forms.Label();
+            this.lblCustomer = new System.Windows.Forms.Label();
+            this.lblTongTien = new System.Windows.Forms.Label();
+            this.lblTrangThai = new System.Windows.Forms.Label();
+            this.lblGhiChu = new System.Windows.Forms.Label();
 
             ((System.ComponentModel.ISupportInitialize)(this.dgvOrders)).BeginInit();
             this.SuspendLayout();
 
-            // 
-            // lblID
-            // 
-            this.lblID.AutoSize = true;
-            this.lblID.Location = new System.Drawing.Point(20, 15);
-            this.lblID.Name = "lblID";
-            this.lblID.Size = new System.Drawing.Size(20, 15);
-            this.lblID.Text = "ID";
-            // 
-            // txtID
-            // 
-            this.txtID.Location = new System.Drawing.Point(110, 12);
+            // dgvOrders
+            this.dgvOrders.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvOrders.Location = new System.Drawing.Point(20, 300);
+            this.dgvOrders.Name = "dgvOrders";
+            this.dgvOrders.RowTemplate.Height = 24;
+            this.dgvOrders.Size = new System.Drawing.Size(740, 200);
+            this.dgvOrders.TabIndex = 0;
+            this.dgvOrders.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvOrders_CellClick);
+
+            // Labels
+            this.lblID.Text = "ID:";
+            this.lblID.Location = new System.Drawing.Point(20, 20);
+            this.lblID.Size = new System.Drawing.Size(100, 23);
+
+            this.lblNgay.Text = "Ngày đặt:";
+            this.lblNgay.Location = new System.Drawing.Point(20, 60);
+            this.lblNgay.Size = new System.Drawing.Size(100, 23);
+
+            this.lblCustomer.Text = "Khách hàng:";
+            this.lblCustomer.Location = new System.Drawing.Point(20, 100);
+            this.lblCustomer.Size = new System.Drawing.Size(100, 23);
+
+            this.lblTongTien.Text = "Tổng tiền:";
+            this.lblTongTien.Location = new System.Drawing.Point(400, 20);
+            this.lblTongTien.Size = new System.Drawing.Size(100, 23);
+
+            this.lblTrangThai.Text = "Trạng thái:";
+            this.lblTrangThai.Location = new System.Drawing.Point(400, 60);
+            this.lblTrangThai.Size = new System.Drawing.Size(100, 23);
+
+            this.lblGhiChu.Text = "Ghi chú:";
+            this.lblGhiChu.Location = new System.Drawing.Point(400, 100);
+            this.lblGhiChu.Size = new System.Drawing.Size(100, 23);
+
+            // TextBox: ID
+            this.txtID.Location = new System.Drawing.Point(130, 20);
             this.txtID.Name = "txtID";
             this.txtID.ReadOnly = true;
-            this.txtID.Size = new System.Drawing.Size(150, 23);
-            // 
-            // lblNgay
-            // 
-            this.lblNgay.AutoSize = true;
-            this.lblNgay.Location = new System.Drawing.Point(20, 50);
-            this.lblNgay.Name = "lblNgay";
-            this.lblNgay.Size = new System.Drawing.Size(35, 15);
-            this.lblNgay.Text = "Ngày";
-            // 
-            // dtpNgay
-            // 
-            this.dtpNgay.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtpNgay.Location = new System.Drawing.Point(110, 47);
+            this.txtID.Size = new System.Drawing.Size(200, 22);
+
+            // DateTimePicker: Ngay
+            this.dtpNgay.Location = new System.Drawing.Point(130, 60);
             this.dtpNgay.Name = "dtpNgay";
-            this.dtpNgay.Size = new System.Drawing.Size(150, 23);
-            // 
-            // lblKhachHang
-            // 
-            this.lblKhachHang.AutoSize = true;
-            this.lblKhachHang.Location = new System.Drawing.Point(20, 85);
-            this.lblKhachHang.Name = "lblKhachHang";
-            this.lblKhachHang.Size = new System.Drawing.Size(70, 15);
-            this.lblKhachHang.Text = "Khách hàng";
-            // 
-            // comboCustomer
-            // 
-            this.comboCustomer.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboCustomer.FormattingEnabled = true;
-            this.comboCustomer.Location = new System.Drawing.Point(110, 82);
+            this.dtpNgay.Size = new System.Drawing.Size(200, 22);
+
+            // ComboBox: Customer
+            this.comboCustomer.Location = new System.Drawing.Point(130, 100);
             this.comboCustomer.Name = "comboCustomer";
-            this.comboCustomer.Size = new System.Drawing.Size(150, 23);
-            // 
-            // btnAdd
-            // 
-            this.btnAdd.Location = new System.Drawing.Point(20, 120);
+            this.comboCustomer.Size = new System.Drawing.Size(200, 24);
+
+            // TextBox: TongTien
+            this.txtTongTien.Location = new System.Drawing.Point(510, 20);
+            this.txtTongTien.Name = "txtTongTien";
+            this.txtTongTien.Size = new System.Drawing.Size(200, 22);
+
+            // TextBox: TrangThai
+            this.txtTrangThai.Location = new System.Drawing.Point(510, 60);
+            this.txtTrangThai.Name = "txtTrangThai";
+            this.txtTrangThai.Size = new System.Drawing.Size(200, 22);
+
+            // TextBox: GhiChu
+            this.txtGhiChu.Location = new System.Drawing.Point(510, 100);
+            this.txtGhiChu.Name = "txtGhiChu";
+            this.txtGhiChu.Size = new System.Drawing.Size(200, 22);
+
+            // Button: Add
+            this.btnAdd.Location = new System.Drawing.Point(130, 160);
             this.btnAdd.Name = "btnAdd";
-            this.btnAdd.Size = new System.Drawing.Size(70, 30);
+            this.btnAdd.Size = new System.Drawing.Size(90, 30);
             this.btnAdd.Text = "Thêm";
             this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
-            // 
-            // btnUpdate
-            // 
-            this.btnUpdate.Location = new System.Drawing.Point(110, 120);
+
+            // Button: Update
+            this.btnUpdate.Location = new System.Drawing.Point(250, 160);
             this.btnUpdate.Name = "btnUpdate";
-            this.btnUpdate.Size = new System.Drawing.Size(70, 30);
+            this.btnUpdate.Size = new System.Drawing.Size(90, 30);
             this.btnUpdate.Text = "Sửa";
             this.btnUpdate.Click += new System.EventHandler(this.btnUpdate_Click);
-            // 
-            // btnDelete
-            // 
-            this.btnDelete.Location = new System.Drawing.Point(190, 120);
+
+            // Button: Delete
+            this.btnDelete.Location = new System.Drawing.Point(370, 160);
             this.btnDelete.Name = "btnDelete";
-            this.btnDelete.Size = new System.Drawing.Size(70, 30);
+            this.btnDelete.Size = new System.Drawing.Size(90, 30);
             this.btnDelete.Text = "Xóa";
             this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
-            // 
-            // dgvOrders
-            // 
-            this.dgvOrders.AllowUserToAddRows = false;
-            this.dgvOrders.AllowUserToDeleteRows = false;
-            this.dgvOrders.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-                        | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
-            this.dgvOrders.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvOrders.Location = new System.Drawing.Point(20, 160);
-            this.dgvOrders.MultiSelect = false;
-            this.dgvOrders.Name = "dgvOrders";
-            this.dgvOrders.ReadOnly = true;
-            this.dgvOrders.RowHeadersVisible = false;
-            this.dgvOrders.RowTemplate.Height = 25;
-            this.dgvOrders.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvOrders.Size = new System.Drawing.Size(500, 250);
 
-            // 
             // OrderForm
-            // 
-            this.ClientSize = new System.Drawing.Size(550, 430);
-            this.Controls.Add(this.lblID);
+            this.ClientSize = new System.Drawing.Size(800, 520);
+            this.Controls.Add(this.dgvOrders);
             this.Controls.Add(this.txtID);
-            this.Controls.Add(this.lblNgay);
             this.Controls.Add(this.dtpNgay);
-            this.Controls.Add(this.lblKhachHang);
             this.Controls.Add(this.comboCustomer);
+            this.Controls.Add(this.txtTongTien);
+            this.Controls.Add(this.txtTrangThai);
+            this.Controls.Add(this.txtGhiChu);
             this.Controls.Add(this.btnAdd);
             this.Controls.Add(this.btnUpdate);
             this.Controls.Add(this.btnDelete);
-            this.Controls.Add(this.dgvOrders);
+            this.Controls.Add(this.lblID);
+            this.Controls.Add(this.lblNgay);
+            this.Controls.Add(this.lblCustomer);
+            this.Controls.Add(this.lblTongTien);
+            this.Controls.Add(this.lblTrangThai);
+            this.Controls.Add(this.lblGhiChu);
             this.Name = "OrderForm";
-            this.Text = "Quản lý Đơn hàng";
-
+            this.Text = "Quản lý Đơn Hàng";
             ((System.ComponentModel.ISupportInitialize)(this.dgvOrders)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
         }
+
+        private System.Windows.Forms.DataGridView dgvOrders;
+        private System.Windows.Forms.TextBox txtID;
+        private System.Windows.Forms.DateTimePicker dtpNgay;
+        private System.Windows.Forms.ComboBox comboCustomer;
+        private System.Windows.Forms.TextBox txtTongTien;
+        private System.Windows.Forms.TextBox txtTrangThai;
+        private System.Windows.Forms.TextBox txtGhiChu;
+        private System.Windows.Forms.Button btnAdd;
+        private System.Windows.Forms.Button btnUpdate;
+        private System.Windows.Forms.Button btnDelete;
+
+        private System.Windows.Forms.Label lblID;
+        private System.Windows.Forms.Label lblNgay;
+        private System.Windows.Forms.Label lblCustomer;
+        private System.Windows.Forms.Label lblTongTien;
+        private System.Windows.Forms.Label lblTrangThai;
+        private System.Windows.Forms.Label lblGhiChu;
     }
 }
